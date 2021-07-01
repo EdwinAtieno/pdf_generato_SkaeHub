@@ -1,13 +1,13 @@
 
-1)REQUIREMENTS_SET_UP
- atomicwrites==1.4.0, attrs==21.2.0, colorama==0.4.4,cycler==0.10.0, fpdf==1.7.2
-fpdf2==2.4.2,iniconfig==1.1.1 ,kiwisolver==1.3.1 ,matplotlib==3.4.2 ,numpy==1.21.0 ,packaging==20.9
-pandas==1.2.5, pandoc==1.1.0 ,pdfkit==0.6.1 ,Pillow==8.2.0, pluggy==0.13.1, plumbum==1.7.0
-ply==3.11,py==1.10.0, pypandoc==1.5, pyparsing==2.4.7, pyPdf==1.13, PyPDF2==1.26.0, pypiwin32==223
-pytest==6.2.4, python-dateutil==2.8.1, pytz==2021.1, pywin32==301, six==1.16.0, tabula==1.0.5
-toml==0.10.2, wkhtmltopdf==0.2, Wrapper==1.1.0b1
-<a source="https://user-images.githubusercontent.com/35099243/123341302-6bf42c00-d556-11eb-8d2e-67dcb030361b.png" href=""></a>
+1. Installation and setup
 
+First clone this repository to your local machine using https://github.com/EdwinAtieno/pdf_generator_SkaeHub.git
+
+Checkout into the master branch using git checkout master
+
+Create a virtualenv on your machine and install the dependencies via pip install -r requirements.txt and activate it.
+
+cd into the app folder and run python run-app.py --interactive
 PDF GENERATOR
 CLI app that reads the contents of a simple SQLite school database and convert the whole database to a single PDF document. Prompt the user for an email address to send the PDF to. The email should be a proper one with the header, body, designation and PDF attachment.
 
