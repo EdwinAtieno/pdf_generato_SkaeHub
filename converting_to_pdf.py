@@ -1,12 +1,24 @@
-import trail
+import main
 import csv
 from fpdf import FPDF
 import PyPDF2
+import pandas as pd
+def read_student_csv():
+    df = pd.read_csv('pdfs/students_table.csv')  # or pd.read_excel(filename) for xls file
+    return df.empty  # will return True if the dataframe is empty or False if not.
+def read_teachers_csv():
+    df = pd.read_csv('pdfs/teacher_table.csv')  # or pd.read_excel(filename) for xls file
+    return df.empty  # will return True if the dataframe is empty or False if not.
+
+def read_school_csv():
+    df = pd.read_csv('pdfs/school_table.csv')  # or pd.read_excel(filename) for xls file
+    return df.all()  # will return True if the dataframe is empty or False if not.
+
 
 def create_pdf(n):
 
     if n == 1:
-        trail.students_table()
+        main.students_table()
         with open('pdfs/students_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -46,7 +58,7 @@ def create_pdf(n):
 
                 pdf.output('student.pdf', 'F')
     if n == 2:
-        trail.teachers_table()
+        main.teachers_table()
         with open('pdfs/teacher_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -83,7 +95,7 @@ def create_pdf(n):
 
                 pdf.output('teachers.pdf', 'F')
     if n == 3:
-        trail.schools_table()
+        main.schools_table()
         with open('pdfs/school_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -123,7 +135,7 @@ def create_pdf(n):
                 pdf.output('school.pdf', 'F')
 
     if n == 4:
-        trail.students_table()
+        main.students_table()
         with open('pdfs/students_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -163,7 +175,7 @@ def create_pdf(n):
 
                 pdf.output('student.pdf', 'F')
 
-        trail.teachers_table()
+        main.teachers_table()
         with open('pdfs/teacher_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -200,7 +212,7 @@ def create_pdf(n):
 
                 pdf.output('teachers.pdf', 'F')
 
-        trail.schools_table()
+        main.schools_table()
         with open('pdfs/school_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -239,16 +251,10 @@ def create_pdf(n):
 
                 pdf.output('school.pdf', 'F')
 
-
-
-
-
-
-
 def read_pdf(n):
     if n==1:
         # creating a pdf file object
-        pdfFileObj = open('students.pdf', 'rb')
+        pdfFileObj = open('student.pdf', 'rb')
 
         # creating a pdf reader object
         pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
@@ -302,7 +308,7 @@ def read_pdf(n):
         pdfFileObj.close()
 
 def main():
-    n=int(input("enter 1=student.pdf\n 2=teacher.pdf\n 3=school.pdf"))
+    n=int(input("enter 1=student.pdf\n 2=teacher.pdf\n 3=school.pdf\n"))
     while n <=3:
         read_pdf(n)
     print("wrong choice")

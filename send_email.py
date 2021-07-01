@@ -1,6 +1,6 @@
 import os
 import smtplib
-import trail
+import main
 import imghdr
 from email.message import EmailMessage
 
@@ -28,6 +28,7 @@ def number_of_contact(n,meso,cont,pdf):
     smtp= smtplib.SMTP_SSL( 'smtp.gmail.com', 465)
     smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
     smtp.send_message(msg)
+    return msg
 
 
 

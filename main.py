@@ -1,16 +1,30 @@
-# This is a sample Python script.
+import sqlite3
+import pdfkit
+import converting_to_pdf
+import csv
+import send_email
+import pandas as pd
+from fpdf import FPDF
+def students_table():
+      conn = sqlite3.connect('database/school.db')
+      db_df = pd.read_sql_query("SELECT * FROM students", conn)
+      db_df.to_csv('pdfs/students_table.csv', index=False)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
+def teachers_table():
+    conn = sqlite3.connect('database/school.db')
+    db_df = pd.read_sql_query("SELECT * FROM teachers", conn)
+    db_df.to_csv('pdfs/teacher_table.csv', index=False)
+def schools_table():
+    conn = sqlite3.connect('database/school.db')
+    db_df = pd.read_sql_query("SELECT * FROM schools", conn)
+    db_df.to_csv('pdfs/school_table.csv', index=False)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def main():
+    n = int(input("choose which table to print: \n 1. students \n 2. teachers \n 3. schools \n 4. all \n"))
+    converting_to_pdf.create_pdf(n)
+    pdf=int(input("choose which table to send: \n 1. students \n 2. teachers \n 3. schools \n 4. All \n"))
+    send_email.main(pdf)
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
