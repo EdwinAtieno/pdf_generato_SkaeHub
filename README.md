@@ -63,9 +63,14 @@ SUPPORTING VIDEOS
 1) TESTING PROJECT:
     Database, Csv, pdf and email
     ![PROJECT TEST](https://user-images.githubusercontent.com/60142434/124177159-87ac8480-dab8-11eb-9474-06548cb96ceb.gif)
+    
+    
 2) DATABASE CREATION
     Reading data from CSV convert to database
     ![Data creation](https://user-images.githubusercontent.com/60142434/124177247-a14dcc00-dab8-11eb-931f-ed466205aa71.gif)
+    
+    
+    
 3) PDF GENERATING AND SENDING THROUGH EMAIL
     Main task was to create pdf and be able to send copies 
     ![Pdf generator and email](https://user-images.githubusercontent.com/60142434/124177338-c4787b80-dab8-11eb-9050-4e267447f8cd.gif)
