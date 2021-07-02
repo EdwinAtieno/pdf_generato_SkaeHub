@@ -1,4 +1,5 @@
-import main
+import main as mn
+#from main import *
 import csv
 from fpdf import FPDF
 import PyPDF2
@@ -18,7 +19,7 @@ def read_school_csv():
 def create_pdf(n):
 
     if n == 1:
-        main.students_table()
+        mn.student_table()
         with open('pdfs/students_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -58,7 +59,7 @@ def create_pdf(n):
 
                 pdf.output('student.pdf', 'F')
     if n == 2:
-        main.teachers_table()
+        mn.teachers_table()
         with open('pdfs/teacher_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -95,7 +96,7 @@ def create_pdf(n):
 
                 pdf.output('teachers.pdf', 'F')
     if n == 3:
-        main.schools_table()
+        mn.schools_table()
         with open('pdfs/school_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -135,7 +136,7 @@ def create_pdf(n):
                 pdf.output('school.pdf', 'F')
 
     if n == 4:
-        main.students_table()
+        mn.student_table()
         with open('pdfs/students_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -175,7 +176,7 @@ def create_pdf(n):
 
                 pdf.output('student.pdf', 'F')
 
-        main.teachers_table()
+        mn.teachers_table()
         with open('pdfs/teacher_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
@@ -212,7 +213,7 @@ def create_pdf(n):
 
                 pdf.output('teachers.pdf', 'F')
 
-        main.schools_table()
+        mn.schools_table()
         with open('pdfs/school_table.csv', newline='') as f:
             reader = csv.reader(f)
             for row in reader:

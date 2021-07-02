@@ -3,12 +3,7 @@ import csv
 import pandas as pd
 conn = sqlite3.connect('database/school.db')
 c = conn.cursor()
-"""
-def database():
-    # database stored in the memory
-    conn = sqlite3.connect('database/school.db')
-    c = conn.cursor()
-    conn.close()"""
+
 def create_tables():
 
     c.execute("""
@@ -97,7 +92,7 @@ def main():
     #database()
     create_tables()
     insert_data()
-    students_table()
+    #students_table()
 
 if __name__ == '__main__':
     main()

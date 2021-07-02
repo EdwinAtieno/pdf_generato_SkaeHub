@@ -5,7 +5,7 @@ import csv
 import send_email
 import pandas as pd
 from fpdf import FPDF
-def students_table():
+def student_table():
       conn = sqlite3.connect('database/school.db')
       db_df = pd.read_sql_query("SELECT * FROM students", conn)
       db_df.to_csv('pdfs/students_table.csv', index=False)
