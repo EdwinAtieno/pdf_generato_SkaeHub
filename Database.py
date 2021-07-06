@@ -48,25 +48,25 @@ CSV into the database/tables this tables
 should have the same number of columns as the csv"""
 def insert_data():
 
+    # read data from CSV file then copy the data to a given table in the db
     with open('csv/Student.csv', 'r') as student:
         no_students=0
         for row in student:
              c.execute("INSERT INTO students VALUES (?,?,?,?,?,?,?,?)", row.split(","))
              conn.commit()
              no_students +=1
-
-
     print("\n {} Records transferred".format(no_students))
 
+    # read data from CSV file then copy the data to a given table in the db
     with open('csv/Teacher.csv', 'r') as teacher:
           no_teacher=0
           for row in teacher:
                c.execute("INSERT INTO teachers VALUES (?,?,?,?,?)", row.split(","))
                conn.commit()
                no_teacher +=1
-
     print("\n {} Records transferred".format(no_teacher))
 
+    # read data from CSV file then copy the data to a given table in the db
     with open('csv/School.csv', 'r') as school:
          no_school=0
          for row in school:
