@@ -1,9 +1,15 @@
+"""Import csv, PyPDF2, and pandas to create
+dataframe, pdf, read csv and file functions"""
+
 import main as mn
 #from main import *
 import csv
 from fpdf import FPDF
 import PyPDF2
 import pandas as pd
+
+
+#functions to read CSV files so as to test them if they are empty
 def read_student_csv():
     df = pd.read_csv('pdfs/students_table.csv')  # or pd.read_excel(filename) for xls file
     return df.empty  # will return True if the dataframe is empty or False if not.
@@ -15,9 +21,11 @@ def read_school_csv():
     df = pd.read_csv('pdfs/school_table.csv')  # or pd.read_excel(filename) for xls file
     return df.all()  # will return True if the dataframe is empty or False if not.
 
-
+"""we convert tables from the database to csv 
+and then read data from the csv to pdf file"""
 def create_pdf(n):
 
+    # checks if user selected 1 which is for the student table
     if n == 1:
         mn.student_table()
         with open('pdfs/students_table.csv', newline='') as f:
@@ -58,6 +66,8 @@ def create_pdf(n):
                 pdf.cell(page_width, 0.0, '- end of report -', align='C')
 
                 pdf.output('student.pdf', 'F')
+
+    # checks if user selected 2 which is for the teachers table
     if n == 2:
         mn.teachers_table()
         with open('pdfs/teacher_table.csv', newline='') as f:
@@ -95,6 +105,8 @@ def create_pdf(n):
                 pdf.cell(page_width, 0.0, '- end of report -', align='C')
 
                 pdf.output('teachers.pdf', 'F')
+
+    # checks if user selected 3 which is for the school table
     if n == 3:
         mn.schools_table()
         with open('pdfs/school_table.csv', newline='') as f:
@@ -135,6 +147,7 @@ def create_pdf(n):
 
                 pdf.output('school.pdf', 'F')
 
+    # checks if user selected 4 which convert each table to csv which are then converted to pdfs
     if n == 4:
         mn.student_table()
         with open('pdfs/students_table.csv', newline='') as f:
@@ -157,6 +170,7 @@ def create_pdf(n):
 
                 th = pdf.font_size
 
+                # set the size and specification of the pdf page
                 for row in reader:
                     # print(row)
                     pdf.cell(col_width, th, str(row[0]), border=1)
@@ -176,6 +190,7 @@ def create_pdf(n):
 
                 pdf.output('student.pdf', 'F')
 
+        # read teachers table then converts it
         mn.teachers_table()
         with open('pdfs/teacher_table.csv', newline='') as f:
             reader = csv.reader(f)
@@ -212,7 +227,6 @@ def create_pdf(n):
                 pdf.cell(page_width, 0.0, '- end of report -', align='C')
 
                 pdf.output('teachers.pdf', 'F')
-
         mn.schools_table()
         with open('pdfs/school_table.csv', newline='') as f:
             reader = csv.reader(f)
