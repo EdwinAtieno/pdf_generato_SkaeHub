@@ -271,11 +271,12 @@ def create_pdf(n):
 
                 pdf.output('school.pdf', 'F')
 
+        # the merge the produced pdf above into one
         for items in os.listdir():
             if items.endswith('.pdf'):
                 merge.append(items)
         merge.write("School_DB.pdf")
-
+        merge.close()
 
 
 
