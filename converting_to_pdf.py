@@ -190,7 +190,7 @@ def create_pdf(n):
 
                 pdf.output('student.pdf', 'F')
 
-        # read teachers table then converts it
+        # read teachers table then converts it to csv then pdf
         mn.teachers_table()
         with open('pdfs/teacher_table.csv', newline='') as f:
             reader = csv.reader(f)
@@ -227,6 +227,8 @@ def create_pdf(n):
                 pdf.cell(page_width, 0.0, '- end of report -', align='C')
 
                 pdf.output('teachers.pdf', 'F')
+
+        # read school table then converts it to csv then pdf
         mn.schools_table()
         with open('pdfs/school_table.csv', newline='') as f:
             reader = csv.reader(f)
