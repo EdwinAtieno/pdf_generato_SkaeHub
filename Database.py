@@ -1,9 +1,15 @@
+# import sqlite3 to create database
+# and pandas to create a dataframe
 import sqlite3
-import csv
 import pandas as pd
+import csv
+# create a connection to the database
 conn = sqlite3.connect('database/school.db')
 c = conn.cursor()
 
+""" This function helps create tables for
+our database stated above where we state the name of the table 
+and column names"""
 def create_tables():
 
     c.execute("""
@@ -37,6 +43,9 @@ def create_tables():
                             )""")
     conn.commit()
 
+""" This function allows us to import data from
+CSV into the database/tables this tables 
+should have the same number of columns as the csv"""
 def insert_data():
 
     with open('csv/Student.csv', 'r') as student:
@@ -46,8 +55,7 @@ def insert_data():
              conn.commit()
              no_students +=1
 
-    #c.execute("SELECT * FROM students")
-    #print(c.fetchall())
+
     print("\n {} Records transferred".format(no_students))
 
     with open('csv/Teacher.csv', 'r') as teacher:
@@ -56,8 +64,7 @@ def insert_data():
                c.execute("INSERT INTO teachers VALUES (?,?,?,?,?)", row.split(","))
                conn.commit()
                no_teacher +=1
-             #c.execute("SELECT * FROM students")
-            #print(c.fetchall())
+
     print("\n {} Records transferred".format(no_teacher))
 
     with open('csv/School.csv', 'r') as school:
@@ -67,12 +74,12 @@ def insert_data():
              conn.commit()
              no_school +=1
 
-            #c.execute("SELECT * FROM students")
-            #print(c.fetchall())
+
     print("\n {} Records transferred".format(no_school))
     conn.close()
 
-
+""" these are functions to be used to test if the table really
+exists int the database"""
 def students_table():
     conn = sqlite3.connect('database/school.db')
     db_df = pd.read_sql_query("SELECT * FROM students", conn)
@@ -89,7 +96,7 @@ def schools_table():
 
 
 def main():
-    #database()
+
     create_tables()
     insert_data()
     #students_table()
