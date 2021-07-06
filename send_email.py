@@ -60,7 +60,7 @@ def main(att):
         if att == 3:
             pdf.append('school.pdf')
         if att == 4:
-            pdf= all
+            pdf.append('School_DB.pdf')
 
         # Ask user for the number of email to receive the email
         em= int(input("enter the number of emails to send:  "))

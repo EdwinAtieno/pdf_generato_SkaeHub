@@ -26,6 +26,12 @@ def schools_table():
     db_df = pd.read_sql_query("SELECT * FROM schools", conn)
     db_df.to_csv('pdfs/school_table.csv', index=False)
 
+
+
+
+
+
+
 # function which prompts user for input also used to call the other functions
 def main():
     n = int(input("choose which table to print: \n 1. students \n 2. teachers \n 3. schools \n 4. all \n"))

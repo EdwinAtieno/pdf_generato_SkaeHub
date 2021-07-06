@@ -4,10 +4,13 @@ dataframe, pdf, read csv and file functions"""
 import main as mn
 #from main import *
 import csv
+import os
 from fpdf import FPDF
 import PyPDF2
+from PyPDF2 import PdfFileMerger
 import pandas as pd
 
+merge = PdfFileMerger()
 
 #functions to read CSV files so as to test them if they are empty
 def read_student_csv():
@@ -267,6 +270,14 @@ def create_pdf(n):
                 pdf.cell(page_width, 0.0, '- end of report -', align='C')
 
                 pdf.output('school.pdf', 'F')
+
+        for items in os.listdir():
+            if items.endswith('.pdf'):
+                merge.append(items)
+        merge.write("School_DB.pdf")
+
+
+
 
 def read_pdf(n):
     if n==1:
