@@ -116,10 +116,13 @@ def create_pdf(n):
             reader = csv.reader(f)
             for row in reader:
                 print(row)
+
+                # create pages
                 pdf = FPDF()
                 pdf.add_page()
                 page_width = pdf.w -(-2) * pdf.l_margin
 
+                # setting the font color, size and also data
                 pdf.set_font('Times', 'B', 14.0)
                 pdf.cell(page_width, 0.0, 'Schools Data', align='C')
                 pdf.ln(10)
@@ -132,6 +135,7 @@ def create_pdf(n):
 
                 th = pdf.font_size
 
+                # set the size and specification of the pdf page
                 for row in reader:
                     # print(row)
                     pdf.cell(col_width, th, str(row[0]), border=1)
@@ -161,6 +165,7 @@ def create_pdf(n):
                 pdf.add_page()
                 page_width = pdf.w - 2 * pdf.l_margin
 
+                # setting the font color, size and also data
                 pdf.set_font('Times', 'B', 14.0)
                 pdf.cell(page_width, 0.0, 'Students Data', align='C')
                 pdf.ln(10)
@@ -203,6 +208,7 @@ def create_pdf(n):
                 pdf.add_page()
                 page_width = pdf.w - 2 * pdf.l_margin
 
+                # setting the font color, size and also data
                 pdf.set_font('Times', 'B', 14.0)
                 pdf.cell(page_width, 0.0, 'Teachers Data', align='C')
                 pdf.ln(10)
@@ -215,6 +221,7 @@ def create_pdf(n):
 
                 th = pdf.font_size
 
+                # creating columns where the data is written
                 for row in reader:
                     # print(row)
                     pdf.cell(col_width, th, str(row[0]), border=1)
@@ -241,6 +248,7 @@ def create_pdf(n):
                 pdf.add_page()
                 page_width = pdf.w - (-2) * pdf.l_margin
 
+                # setting the font color, size and also data
                 pdf.set_font('Times', 'B', 14.0)
                 pdf.cell(page_width, 0.0, 'Schools Data', align='C')
                 pdf.ln(10)
@@ -253,6 +261,7 @@ def create_pdf(n):
 
                 th = pdf.font_size
 
+                # creating columns where the data is written
                 for row in reader:
                     # print(row)
                     pdf.cell(col_width, th, str(row[0]), border=1)

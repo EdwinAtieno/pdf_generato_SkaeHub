@@ -7,6 +7,9 @@ import csv
 import send_email
 import pandas as pd
 from fpdf import FPDF
+import tkinter
+top = tkinter.Tk()
+# Code to add widgets will go here...
 
 # function which extracts students data from student table then convert it to CSV
 def student_table():
@@ -29,9 +32,6 @@ def schools_table():
 
 
 
-
-
-
 # function which prompts user for input also used to call the other functions
 def main():
     n = int(input("choose which table to print: \n 1. students \n 2. teachers \n 3. schools \n 4. all \n"))
@@ -41,3 +41,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+top.mainloop()
